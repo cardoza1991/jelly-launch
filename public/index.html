@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellybash Launcher</title>
+    <script>
+        function deployApp(endpoint) {
+            fetch(endpoint, { method: 'POST' })
+                .then(response => response.text())
+                .then(message => alert(message))
+                .catch(error => {
+                    alert('Deployment failed.');
+                    console.error(error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Jellybash Launcher</h1>
+    <button onclick="deployApp('/deploy/web-server')">Deploy Web Server</button>
+    <button onclick="deployApp('/deploy/database')">Deploy Database</button>
+</body>
+</html>
